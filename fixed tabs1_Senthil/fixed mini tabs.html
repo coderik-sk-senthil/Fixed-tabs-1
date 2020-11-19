@@ -1,0 +1,106 @@
+<html>
+<head>
+<style>
+body
+{
+	background-color: #252525;
+}
+
+div.tab-wrapper {
+	width: 60%;
+	margin: auto;
+}
+
+div.tab-button-wrapper ul {
+	padding: 0;
+	list-style: none;
+}
+
+div.tab-button-wrapper li {
+	float: left;
+}
+
+a.tab-button-first {
+	border-radius: 3px 0 0 0;
+	-webkit-border-radius: 3px 0 0 0;
+	-moz-border-radius: 3px 0 0 0;
+}
+
+a.tab-button-last {
+	border-radius: 0 3px 0 0;
+	-webkit-border-radius: 0 3px 0 0;
+	-moz-border-radius: 0 3px 0 0;
+	border-right: none;
+}
+
+div.tab-button-wrapper a {
+	display: block;
+	padding: 1em;
+	text-decoration: none;
+	color: #252525;
+	background-color: #FFFFFF;
+	border-right: 1px solid black;
+}
+
+a.tab-button-hidden {
+	opacity: 0.5;
+}
+
+div.tab-body {
+	padding: 1em;
+	clear: both;
+	background-color: #FFFFFF;
+	min-height: 85%;
+	border-radius: 0 3px 3px 3px;
+	-webkit-border-radius: 0 3px 3px 3px;
+	-moz-border-radius: 0 3px 3px 3px;
+}
+
+div.tab-body-hidden {
+	display: none;
+}
+</style>
+</head>
+<body>
+	<div class="tab-wrapper">
+	<div class="tab-button-wrapper">
+		<ul>
+			<li><a class="tab-button-first"
+				id="tab-button1"
+				href="javascript:void(0)"
+				onclick="loadTab(1)">Tab 1</a></li>
+			<li><a class="tab-button-hidden" 
+				id="tab-button2"
+				href="javascript:void(0)"
+				onclick="loadTab(2)">Tab 2</a></li>
+			<li><a class="tab-button-hidden tab-button-last" 
+				id="tab-button3"
+				href="javascript:void(0)"
+				onclick="loadTab(3)">Tab 3</a></li>
+		</ul>
+	</div>
+	<div class="tab-body-wrapper">
+		<div class="tab-body" id="tab1"><p>Body 1</p></div>
+		<div class="tab-body tab-body-hidden" id="tab2"><p>Body 2</p></div>
+		<div class="tab-body tab-body-hidden" id="tab3"><p>Body 3</p></div>
+	</div>
+	</div>
+<script>
+var last_tab = 1;
+
+function loadTab(tab_number)
+{
+	if (tab_number === last_tab) return;
+	
+	document.getElementById("tab" + last_tab).style.display = "none";
+	document.getElementById("tab" + tab_number).style.display = "block";
+	document.getElementById("tab-button" + last_tab).style.opacity = "0.5";
+	document.getElementById("tab-button" + tab_number).style.opacity = "1.0";
+
+	last_tab = tab_number;
+}
+</script>
+</body>
+
+
+</html>
